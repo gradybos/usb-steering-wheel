@@ -24,15 +24,23 @@ The linear potentiometers used for the project were selected based on size and c
 
 ![Top Level](./images/topLevel.png)
 
+The top-level design outlines the flow of information between subsystems and shows how this forms the overall system. The steering wheel, buttons, and pedals feed into the microcontroller which communicates back and forth with the simulator software, and finally the data received from the simulator software is used to control the force feedback motor.
+
 ![Potentiometer Graph](./images/potentiometers.png)
 
-The above graph shows the results of testing the electrical characteristics of the linear potentiometers used in the pedals. 
+The above graph shows the results of testing the electrical characteristics of the linear potentiometers used in the pedals. The graph shown on the left is the expected curve given by the datasheet. Both potentiometers were tested by moving the shaft a measured distance, then measuring the input and output voltages produced. Since both potentiometers are more linear than the datasheet expects them to be, the firmware is easier to implement. This is because the conversion from analog potentiometer reading to simulator software input can be mapped linearly.
 
 ![Encoder Graph](./images/encoderGraph.png)
+
+Similarly, this graph shows the linearity testing results of the magnetic encoder. This graph was created by rotating the magnetic encoder and measuring the angle of rotation, then using the serial monitor to record the measured ADC value. Clearly, there is a linear relationship between the rotation of the encoder and the ADC output.
 
 ## Results
 
 ![Results](./images/results.png)
+
+The results table shown above is based on the specifications defined for the project. These were benchmarks that were important to meet in order for the system to be competitively viable. The steering wheel should be able to rotate a full 360 degrees while having precision within 1 degree, the pedals should be able to utilize the full brake and throttle range in the simulator software, there should be enough buttons to navigate menus and shift through all gears, and the response time should be under 20ms to put the device in line with other game controllers.
+
+The values listed are the values achieved by the final design of the project. The response time was calculated by recording a user turning the wheel while the screen is visible in the shot. Then by analyzing the footage frame-by-frame, the time it took for the user's input to appear on screen could be measured.
 
 ## Future Work
 
